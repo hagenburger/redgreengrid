@@ -1,23 +1,15 @@
 require 'rake'
-require 'rake/testtask'
-require 'rake/rdoctask'
 
-desc 'Default: run unit tests.'
-task :default => :test
-
-desc 'Test the redgreengrid plugin.'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = true
-end
-
-desc 'Generate documentation for the redgreengrid plugin.'
-Rake::RDocTask.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'Redgreengrid'
-  rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README')
-  rdoc.rdoc_files.include('lib/**/*.rb')
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |gemspec|
+    gemspec.name = "redgreengrid"
+    gemspec.summary = "Compass extention for creating baseline grid layouts"
+    gemspec.description = "RedGreenGred makes it easy for you to build cross-browser baseline grid layouts."
+    gemspec.email = "redgreengrid@hagenburger.net"
+    gemspec.homepage = "http://www.hagenburger.net"
+    gemspec.authors = ["Nico Hagenburger"]
+  end
+rescue LoadError
+  puts "Jeweler not available. Install it with: sudo gem install jeweler"
 end
