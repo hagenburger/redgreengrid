@@ -1,0 +1,23 @@
+!rgg_font_size    ||= 13px
+!rgg_line_height  ||= 20px
+
+body
+  :font-family    "Arial", "Helvetica", "sans-serif"
+
+#{!rgg_bold}
+  :font-weight    bold
+
++typography(!rgg_huge,    37px,           !rgg_line_height * 2, -1px)
++typography(!rgg_big,     16px,           !rgg_line_height,      1px)
++typography(!rgg_normal,  !rgg_font_size, !rgg_line_height,         )
+
+.presto
+  #{!rgg_huge}
+    +down(2px)
+      
+.gecko
+  #{!rgg_big}
+    +up(2px)
+    
+  #{!rgg_normal}
+    +up(1px)

@@ -1,0 +1,68 @@
+!rgg_small              ||= "small"
+!rgg_normal             ||= "p, li, dt, dd, td, th, h3, h4, h5, h6, address"
+!rgg_big                ||= "h2, legend"
+!rgg_huge               ||= "h1"
+!rgg_bold               ||= "h1, h2, h3, h4, h5, h6, strong, th"
+!rgg_inline_text        ||= ""
+!rgg_inline_container   ||= ""
+
+
+=up(!pixels)
+  :position       relative
+  :bottom       = !pixels
+  
+
+=down(!pixels)
+  +up(-!pixels)
+  
+
+=typography(!tag, !tag_font_size, !tag_line_height, !tag_position = false)
+  #{!tag}
+    :font-size    = !tag_font_size
+    :line-height  = !tag_line_height
+    :margin       = 0 0 !rgg_line_height
+    @if !tag_position
+      :position     relative
+      :bottom     = !tag_position
+
+
+=float-left(!lines)
+  :height         = !lines * !rgg_line_height
+  :float            left
+  :margin         = 0 !rgg_line_height !rgg_line_height 0
+
+
+=float-right(!lines)
+  :height         = !lines * !rgg_line_height
+  :float            right
+  :margin         = 0 0 !rgg_line_height !rgg_line_height
+
+
+
+=rgg
+  .box
+    +float-left(2)
+    :width        40px
+    :background   #ccc
+  
+  ul.list li
+    :list-style     circle
+    :margin-left  = !rgg_line_height
+  
+  ol.list li
+    :list-style     decimal
+    :margin-left  = !rgg_line_height
+  
+  hr
+    :border         none
+    :border-bottom  1px #ccc dotted
+    :margin       = !rgg_line_height 1px !rgg_line_height - 1px 0
+    +up(1px)
+
+  .gecko hr
+    :margin-bottom  = !rgg_line_height - 2px
+    +up(2px)
+  
+  @if !rgg_inline_container != ""
+    #{!rgg_inline_container}
+      :bottom       0

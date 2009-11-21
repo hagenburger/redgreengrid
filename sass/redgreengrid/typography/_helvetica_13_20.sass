@@ -1,0 +1,19 @@
+!rgg_font_size    ||= 13px
+!rgg_line_height  ||= 20px
+
+body
+  :font-family    "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Swiss 721 Light", "Helvetica", "Arial", "sans-serif"
+  :font-weight    200
+
+#{!rgg_bold}
+  :font-family    "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", "Swiss 721 Bold", "Helvetica", "Arial", "sans-serif"
+  :font-weight    bold
+
++typography(!rgg_huge,    37px,           !rgg_line_height * 2     )
++typography(!rgg_big,     16px,           !rgg_line_height,     2px)
++typography(!rgg_normal,  !rgg_font_size, !rgg_line_height,     1px)
+
+.presto
+  #{!rgg_big}
+    +up(2px)
+
