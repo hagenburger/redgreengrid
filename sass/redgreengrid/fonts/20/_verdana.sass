@@ -1,0 +1,20 @@
+!line_height  ||= 20px
+
+!verdana = "Verdana", "Tahoma", "Vera Sans", "Helvetica", "Arial", "sans-serif"
+    
+=verdana-12(!selector = !rgg_normal)
+  #{!selector}
+    +font(!verdana, 12px)
+  +gecko(!selector, 1px)
+    
+=verdana-16(!selector = !rgg_big)
+  #{!selector}
+    +font(!verdana, 16px)
+  +webkit(!selector, 2px)
+  +presto(!selector, 2px)
+  +gecko(!selector, 3px)
+    
+=verdana-35(!selector = !rgg_huge)
+  #{!selector}
+    +font(!verdana, 36px)
+  +gecko(!selector, 1px)

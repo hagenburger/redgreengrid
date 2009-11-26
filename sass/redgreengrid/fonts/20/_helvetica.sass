@@ -1,15 +1,13 @@
-!rgg_line_height  ||= 20px
+!line_height  ||= 20px
 
-!helvetica_bold  = "HelveticaNeue-Bold,Helvetica Neue Bold,Helvetica Neue,Swiss 721 Bold,Helvetica,Arial,sans-serif"
 
 // REGULAR
 
-!helvetica       = "HelveticaNeue,Helvetica Neue,Swiss 721,Helvetica,Arial,sans-serif"
+!helvetica       = "'HelveticaNeue','Helvetica','Swiss 721','Arial','sans-serif'"
 
 =helvetica-13(!selector = !rgg_normal)
   #{!selector}
     +font(!helvetica, 13px)
-    +up(1px)
 
 =helvetica-16(!selector = !rgg_big)
   #{!selector}
@@ -18,26 +16,46 @@
 
 =helvetica-37(!selector = !rgg_huge)
   #{!selector}
-    +font(!helvetica, 37px)
-  +presto(1px)
+    +font(!helvetica, 37px, 2)
+  +presto(!selector, 1px)
   
 
 // LIGHT
 
-!helvetica_light = "HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Swiss 721 Light,Helvetica,Arial,sans-serif"
+!helvetica_light = "'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue','Swiss 721 Light','Helvetica','Arial','sans-serif'"
 
 =helvetica-light-13(!selector = !rgg_normal)
   #{!selector}
-    +font(!helvetica_light, 13px)
+    +font(!helvetica_light, 13px, 1, 200)
     +up(1px)
 
 =helvetica-light-16(!selector = !rgg_big)
   #{!selector}
-    +font(!helvetica_light, 16px)
+    +font(!helvetica_light, 16px, 1, 200)
     +up(2px)
 
 =helvetica-light-37(!selector = !rgg_huge)
   #{!selector}
-    +font(!helvetica_light, 37px)
-  +presto(1px)
+    +font(!helvetica_light, 37px, 2, 200)
+  +presto(!selector, 1px)
+  
+
+// BOLD
+
+!helvetica_bold  = "'HelveticaNeue-Bold','Helvetica Neue Bold','Helvetica Neue','Swiss 721 Bold','Helvetica','Arial','sans-serif'"
+
+=helvetica-bold-13(!selector = !rgg_normal)
+  #{!selector}
+    +font(!helvetica_bold, 13px)
+    +up(1px)
+
+=helvetica-bold-16(!selector = !rgg_big)
+  #{!selector}
+    +font(!helvetica_bold, 16px)
+    +up(2px)
+
+=helvetica-bold-37(!selector = !rgg_huge)
+  #{!selector}
+    +font(!helvetica_bold, 37px, 2)
+  +presto(!selector, 1px)
   
