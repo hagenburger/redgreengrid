@@ -23,6 +23,8 @@ Gem::Specification.new do |s|
      "init.rb",
      "lib/redgreengrid.rb",
      "lib/redgreengrid/helpers.rb",
+     "pkg/redgreengrid-0.1.0.gem",
+     "redgreengrid.gemspec",
      "sass/redgreengrid/_development.sass",
      "sass/redgreengrid/_redgreengrid.sass",
      "sass/redgreengrid/_reset.sass",
@@ -36,7 +38,7 @@ Gem::Specification.new do |s|
      "spec/spec_helper.rb",
      "templates/screen.sass"
   ]
-  s.homepage = %q{http://www.hagenburger.net}
+  s.homepage = %q{http://github.com/hagenburger/redgreengrid}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
