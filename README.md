@@ -24,10 +24,10 @@ Add to your screen.sass:
 
     // import basics
     @import redgreengrid/redgreengrid.sass
-    // set font family
-    @import redgreengrid/typography/helvetica.sass
-    // add RedGreenGrid
-    +rgg
+    // import font family for line height 20px
+    @import redgreengrid/fonts/20/helvetica.sass
+    +helvetica-light-13("p, li, td")
+    
     // add styles to show the baseline grid
     +rgg-development
     
@@ -35,23 +35,6 @@ Add to your layout/application.html.haml:
 
     %body{ :class => browser_class }
       = redgreengrid
-
-
-Font Sizes
-----------
-
-A RedGreenGrid based layout should have three font sizes: normal, big, huge.
-You can define which CSS selectors will get which size.
-Here’s the default.
-Be sure to place your changes on top of the @imports:
-
-    !rgg_normal = "p, li, dt, dd, td, th, h3, h4, h5, h6, address"
-    !rgg_big    = "h2, legend"
-    !rgg_huge   = "h1"
-    
-    @import redgreengrid/redgreengrid.sass
-    @import redgreengrid/typography/helvetica.sass
-    +rgg
 
 
 
@@ -120,7 +103,7 @@ If you want to change the font size or line height:
 
 1. copy the SASS file of your preferred font family
 2. change the sizes
-3. name the file `_<font-family>_<font-size>_<line-height>.sass`
+3. name the file `fonts/<line-height>/_<font-family>.sass`
 4. test it and fix it for “all” browsers
 5. make a pull request for RedGreenGrid to share it
 
