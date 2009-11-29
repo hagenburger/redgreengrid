@@ -1,68 +1,75 @@
-!rgg_small              ||= "small"
-!rgg_normal             ||= "p, li, dt, dd, td, th, h3, h4, h5, h6, address"
-!rgg_big                ||= "h2, legend"
-!rgg_huge               ||= "h1"
-!rgg_bold               ||= "h1, h2, h3, h4, h5, h6, strong, th"
-!rgg_inline_text        ||= ""
-!rgg_inline_container   ||= ""
+!rgg_small   ||= "small"
+!rgg_normal  ||= "p, li, dt, dd, td, th, h3, h4, h5, h6, address"
+!rgg_big     ||= "h2, legend"
+!rgg_huge    ||= "h1"
+!rgg_bold    ||= "h1, h2, h3, h4, h5, h6, strong, th"
+
+
+=browser(!engine, !selector, !up)
+  .#{!engine}
+    #{!selector}
+      +up(!up)
+
+=webkit(!selector, !up)
+  +browser("webkit", !selector, !up)
+
+=presto(!selector, !up)
+  +browser("presto", !selector, !up)
+
+=gecko(!selector, !up)
+  +browser("gecko", !selector, !up)
+
+=trident(!selector, !up)
+  +browser("trident", !selector, !up)
 
 
 =up(!pixels)
   :position       relative
   :bottom       = !pixels
   
-
 =down(!pixels)
   +up(-!pixels)
   
 
-=typography(!tag, !tag_font_size, !tag_line_height, !tag_position = false)
-  #{!tag}
-    :font-size    = !tag_font_size
-    :line-height  = !tag_line_height
-    :margin       = 0 0 !rgg_line_height
-    @if !tag_position
-      :position     relative
-      :bottom     = !tag_position
+=text-container
+  :bottom         0
+  
+
+=font(!family, !size, !lines = 1, !weight = false)
+  :font-family    = !family
+  :font-size      = !size
+  @if !weight
+    :font-weight  = !weight
+  :line-height    = !line_height * !lines
 
 
 =float-left(!lines)
-  :height         = !lines * !rgg_line_height
+  :height         = !lines * !line_height
   :float            left
-  :margin         = 0 !rgg_line_height !rgg_line_height 0
+  :margin         = 0 !line_height !line_height 0
 
 
 =float-right(!lines)
-  :height         = !lines * !rgg_line_height
+  :height         = !lines * !line_height
   :float            right
-  :margin         = 0 0 !rgg_line_height !rgg_line_height
+  :margin         = 0 0 !line_height !line_height
 
 
+=margin-bottom(!lines = 1)
+  :margin-bottom  = !lines * !line_height
 
-=rgg
-  .box
-    +float-left(2)
-    :width        40px
-    :background   #ccc
-  
-  ul.list li
-    :list-style     circle
-    :margin-left  = !rgg_line_height
-  
-  ol.list li
-    :list-style     decimal
-    :margin-left  = !rgg_line_height
-  
+=margin-top(!lines = 1)
+  :margin-top     = !lines * !line_height
+
+
+=hr  
   hr
-    :border         none
-    :border-bottom  1px #ccc dotted
-    :margin       = !rgg_line_height 1px !rgg_line_height - 1px 0
+    :border           none
+    :border-bottom    1px #ccc dotted
+    :clear            both
+    :margin         = !line_height 1px !line_height - 1px 0
     +up(1px)
 
   .gecko hr
-    :margin-bottom  = !rgg_line_height - 2px
+    :margin-bottom  = !line_height - 2px
     +up(2px)
-  
-  @if !rgg_inline_container != ""
-    #{!rgg_inline_container}
-      :bottom       0

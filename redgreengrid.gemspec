@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{redgreengrid}
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Nico Hagenburger"]
-  s.date = %q{2009-11-21}
+  s.date = %q{2009-11-29}
   s.description = %q{RedGreenGred makes it easy for you to build cross-browser baseline grid layouts.}
   s.email = %q{redgreengrid@hagenburger.net}
   s.extra_rdoc_files = [
@@ -29,10 +29,8 @@ Gem::Specification.new do |s|
      "sass/redgreengrid/_redgreengrid.sass",
      "sass/redgreengrid/_reset.sass",
      "sass/redgreengrid/_typography.sass",
-     "sass/redgreengrid/typography/_arial_13_20.sass",
-     "sass/redgreengrid/typography/_helvetica_13_20.sass",
-     "sass/redgreengrid/typography/_lucida_13_20.sass",
-     "sass/redgreengrid/typography/_verdana_12_20.sass",
+     "sass/redgreengrid/fonts/20/_helvetica.sass",
+     "sass/redgreengrid/fonts/20/_verdana.sass",
      "spec/redgreengrid/helpers_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb",

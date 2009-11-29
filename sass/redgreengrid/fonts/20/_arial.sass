@@ -1,0 +1,20 @@
+!line_height  ||= 20px
+
+!arial = "Arial, Helvetica, sans-serif"
+
+=arial-13(!selector = !rgg_normal)
+  #{!selector}
+    +font(!arial, 13px)
+  +gecko(!selector, 1px)
+
+=arial-16(!selector = !rgg_big)
+  #{!selector}
+    +font(!arial, 16px)
+    +up(1px)
+  +gecko(!selector, 2px)
+
+=arial-37(!selector = !rgg_huge)
+  #{!selector}
+    +font(!arial, 37px, 2)
+    +down(1px)
+  +presto(!selector, -2px)
