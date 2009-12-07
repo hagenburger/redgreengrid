@@ -26,7 +26,10 @@ Add to your screen.sass:
     @import redgreengrid/redgreengrid.sass
     // import font family for line height 20px
     @import redgreengrid/fonts/20/helvetica.sass
-    +helvetica-light-13("p, li, td")
+    p, li, td
+      +helvetica-light-13
+    h1
+      +verdana-36
     
     // add styles to show the baseline grid
     +rgg-development
@@ -37,18 +40,40 @@ Add to your layout/application.html.haml:
       = redgreengrid
 
 
+Don’ts
+------
+
+Don’t add the fonts to the <body> unless you want the whole document to be shifted.
+  
+    // Don’t
+    body
+      +arial-13
+      
+    // Do
+    p, ol.list li, td, .links a
+      +arial-13
+      
+Don’t set the font for elements with a background unless you want the background to be shifted.
+
+    // Don’t
+    <p class="highlight">abc</p>
+    
+    p.highlight
+      :background red
+      +verdana-12
+      
+    // Do
+    <p class="highlight"><span>abc</span></p>
+    
+    p.highlight
+      :background red
+      span
+        +verdana-12
+    
 
 
 Implementations Details
 =======================
-
-
-Mix-Ins
--------
-
-Maybe you’ll ask, why font size selectors aren’t implemented as mix-in?
-That’s because it needs a lot of browser fixes which can’t be done easily with mix-ins and would generate a lot of duplicate code.
-Let’s stay DRY.
 
 
 Browser Fixes
@@ -87,6 +112,13 @@ There are two mix-ins which help you for this job:
 
     +up(1px)
     +down(2px)
+    
+If you want to fix a specific browser, there are mix-ins for each rendering engine:
+
+    +gecko(1px)
+    +presto(2px)
+    +trident(-1px)
+    +webkit(1px)
 
 
 
