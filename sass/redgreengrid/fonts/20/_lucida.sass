@@ -1,21 +1,15 @@
-!line_height  ||= 20px
+@import base.sass
+
 
 !lucida = "'Lucida Grande', 'Tahoma', 'Vera Sans', 'Helvetica', 'Arial', 'sans-serif'"
 
-+typography(!rgg_huge,    36px,           !line_height * 2     )
-+typography(!rgg_big,     16px,           !line_height,     2px)
-+typography(!rgg_normal,  !rgg_font_size, !line_height,     1px)
-
-=lucida-13(!selector = !rgg_normal)
-  #{!selector}
-    +font(!lucida, 13px)
-    +up(1px)
+=lucida-13
+  +font(!lucida, 13px)
+  +up(1px)
     
-=lucida-16(!selector = !rgg_big)
-  #{!selector}
-    +font(!lucida, 16px)
-    +up(2px)
+=lucida-16
+  +font(!lucida, 16px)
+  +up(2px)
 
-=lucida-36(!selector = !rgg_huge)
-  #{!selector}
-    +font(!lucida, 36px, 2)
+=lucida-36
+  +font(!lucida, 36px, 2)

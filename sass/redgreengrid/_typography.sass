@@ -1,34 +1,10 @@
-!rgg_small   ||= "small"
-!rgg_normal  ||= "p, li, dt, dd, td, th, h3, h4, h5, h6, address"
-!rgg_big     ||= "h2, legend"
-!rgg_huge    ||= "h1"
-!rgg_bold    ||= "h1, h2, h3, h4, h5, h6, strong, th"
-
-
-=browser(!engine, !selector, !up)
-  .#{!engine}
-    #{!selector}
-      +up(!up)
-
-=webkit(!selector, !up)
-  +browser("webkit", !selector, !up)
-
-=presto(!selector, !up)
-  +browser("presto", !selector, !up)
-
-=gecko(!selector, !up)
-  +browser("gecko", !selector, !up)
-
-=trident(!selector, !up)
-  +browser("trident", !selector, !up)
-
-
-=up(!pixels)
-  :position       relative
+=up(!pixels, !position = true)
+  @if !position
+    :position     relative
   :bottom       = !pixels
   
-=down(!pixels)
-  +up(-!pixels)
+=down(!pixels, !position = true)
+  +up(-!pixels, !position)
   
 
 =text-container
@@ -62,14 +38,3 @@
   :margin-top     = !lines * !line_height
 
 
-=hr  
-  hr
-    :border           none
-    :border-bottom    1px #ccc dotted
-    :clear            both
-    :margin         = !line_height 1px !line_height - 1px 0
-    +up(1px)
-
-  .gecko hr
-    :margin-bottom  = !line_height - 2px
-    +up(2px)

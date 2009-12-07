@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
      "init.rb",
      "lib/redgreengrid.rb",
      "lib/redgreengrid/helpers.rb",
-     "pkg/redgreengrid-0.1.0.gem",
      "pkg/redgreengrid-0.2.0.gem",
      "redgreengrid.gemspec",
      "sass/redgreengrid/_development.sass",
