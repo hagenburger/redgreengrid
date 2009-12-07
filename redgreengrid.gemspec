@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Nico Hagenburger"]
-  s.date = %q{2009-11-30}
+  s.date = %q{2009-12-07}
   s.description = %q{RedGreenGred makes it easy for you to build cross-browser baseline grid layouts.}
   s.email = %q{redgreengrid@hagenburger.net}
   s.extra_rdoc_files = [
