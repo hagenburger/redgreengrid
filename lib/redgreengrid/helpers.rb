@@ -11,8 +11,8 @@ module RedGreenGrid
       case request.user_agent
       when /(webkit|khtml|presto|trident|gecko)/i
         $~[1].downcase
-      when /msie/i
-        'trident'
+      when /msie (\d)/i
+        "trident trident-#{$1}"
       else
         'other-browser'
       end

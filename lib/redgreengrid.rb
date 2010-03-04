@@ -2,8 +2,11 @@
 
 require 'redgreengrid/helpers'
 
-ActionView::Base.class_eval do
-  include RedGreenGrid::Helpers
+begin
+  ActionView::Base.class_eval do
+    include RedGreenGrid::Helpers
+  end
+rescue
 end
 
 options = {
